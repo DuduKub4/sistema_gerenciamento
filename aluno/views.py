@@ -1,4 +1,3 @@
-# aluno/views.py
 from django.shortcuts import render, redirect
 from .models import Aluno
 from .forms import AlunoForm

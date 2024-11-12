@@ -1,4 +1,3 @@
-# curso/views.py
 from django.shortcuts import render, redirect
 from .models import Curso
 from .forms import CursoForm

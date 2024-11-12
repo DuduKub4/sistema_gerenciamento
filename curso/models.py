@@ -1,4 +1,3 @@
-# curso/models.py
 from django.db import models
 
 class Curso(models.Model):
