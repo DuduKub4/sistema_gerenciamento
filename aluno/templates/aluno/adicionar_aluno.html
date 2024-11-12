@@ -1,0 +1,14 @@
+<!-- aluno/templates/aluno/adicionar_aluno.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3">
+    <h1 class="display-6 mb-4">Adicionar Novo Aluno</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+        <a href="{% url 'listar_alunos' %}" class="btn btn-secondary mt-3 ms-2">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
