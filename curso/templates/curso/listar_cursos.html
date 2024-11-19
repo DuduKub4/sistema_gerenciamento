@@ -12,6 +12,7 @@
             <th>Descrição</th>
             <th>Carga Horária</th>
             <th>Data de Início</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +21,13 @@
             <td>{{ curso.nome }}</td>
             <td>{{ curso.descricao }}</td>
             <td>{{ curso.carga_horaria }} horas</td>
-            <td>{{ curso.data_inicio }}</td>
+            <td>{{ curso.data_inicio|date:"d/m/Y" }}</td>
+            <td>
+                <form method="POST" action="{% url 'remover_curso' curso.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Remover</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

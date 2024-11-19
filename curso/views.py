@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Curso
 from .forms import CursoForm
 
@@ -15,3 +15,12 @@ def adicionar_curso(request):
     else:
         form = CursoForm()
     return render(request, 'curso/adicionar_curso.html', {'form': form})
+
+def remover_curso(request, id):
+    curso = get_object_or_404(Curso, id=id)
+
+    if request.method == 'POST':
+        curso.delete()
+        return redirect('listar_cursos')
+
+    return redirect('listar_cursos')

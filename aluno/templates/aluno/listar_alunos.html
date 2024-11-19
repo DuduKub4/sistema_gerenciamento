@@ -12,6 +12,7 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Data de Nascimento</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,13 @@
             <td>{{ aluno.email }}</td>
             <td>{{ aluno.telefone }}</td>
             <td>{{ aluno.data_nascimento }}</td>
+            <td>
+                <!-- Formulário para deletar aluno -->
+                <form method="POST" action="{% url 'remover_aluno' aluno.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Remover</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </tbody>
