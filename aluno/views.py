@@ -20,7 +20,6 @@ def remover_aluno(request, id):
     aluno = get_object_or_404(Aluno, id=id)
 
     if request.method == 'POST':
-        aluno.delete()  # Remove o aluno do banco de dados
-        return redirect('listar_alunos')  # Redireciona para a lista de alunos após remoção
-
+        aluno.delete()
+        return redirect('listar_alunos')
     return redirect('listar_alunos')
